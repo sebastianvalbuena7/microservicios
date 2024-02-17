@@ -1,0 +1,24 @@
+server:
+  port: 7777
+
+spring:
+  profiles:
+    active: default
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/sebastianvalbuena7/microservice-config.git
+          default-label: main
+          clone-on-start: true
+          username: sebastianvalbuena7
+          password: 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
+
+eureka:
+  instance:
+    instance-id: "${spring.application.name}:${random.value}"
+  client:
+    server-url:
+      defaultZone: http://localhost:8761/eureka/

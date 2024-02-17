@@ -1,17 +1,23 @@
 spring:
-  application:
-    name: companies-crud
   datasource:
-    username: sebas
+    username: ${spring.datasource.username}
     hikari:
       maximum-pool-size: 5
       connection-timeout: 20000
-    url: jdbc:postgresql://localhost:5432/companies
-    password: sebas
+    url: ${spring.datasource.url}
+    password: ${spring.datasource.password}
+  application:
+    name: companies-crud
+  profiles:
+    default: default
+  config:
+    import:
+      "optional:configserver:http://localhost:7777"
 server:
   servlet:
     context-path: /companies-crud
-  port: 0
+  port: 8081
+#  port: 0
 logging:
   level:
     org:
