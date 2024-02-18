@@ -14,7 +14,7 @@ spring:
           default-label: main
           clone-on-start: true
           username: sebastianvalbuena7
-          password: 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
+          password: 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
 
 eureka:
   instance:
